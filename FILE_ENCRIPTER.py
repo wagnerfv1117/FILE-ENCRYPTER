@@ -16,7 +16,7 @@ def ramdom_key():
     Key_Entry.delete(0,"end")
     Key_Entry.config(state=NORMAL)
     Key_Entry.insert(0,key_[:len(key)-1])
-    #Key_Entry.config(state="readonly")
+    
 
 def Start_Decrypt():
     global key
@@ -49,7 +49,7 @@ def Decrypt_file():
             data_un = Mas.decrypt(data)
             f.close()
             
-            # Create 'decrypted' directory if it doesn't exist
+            #create 'decrypted' directory if it doesn't exist
             if not os.path.exists('decrypted'):
                 os.makedirs('decrypted')
             
@@ -113,7 +113,7 @@ def encrypt_file():
     token = Mas.encrypt(data)
     f.close()
     
-    # Create 'data' directory if it doesn't exist
+
     if not os.path.exists('encrypted'):
         os.makedirs('encrypted')
     
@@ -149,8 +149,7 @@ def openfile():
         Path_Varible.set("File:  "+path)
         Decrypt_buton.config(state=NORMAL)
         Encrypt_buton.config(state=NORMAL)
-        #hilo = threading.Thread(target=encrypt_file,daemon=True)
-        #hilo.start()
+
     else:
         Path_Varible.set("File: ")
         Decrypt_buton.config(state=DISABLED)
@@ -162,7 +161,7 @@ Path_Varible = StringVar()
 root.resizable(width=False, height=False)
 root.geometry("400x300")
 
-#Label(text="Key: "+str(key)).pack()
+
 
 File_Path_Label = ttk.Label(root,textvariable=Path_Varible)
 File_Path_Label.place(x=110,y=53)
